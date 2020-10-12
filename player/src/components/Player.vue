@@ -1,6 +1,6 @@
 <template>
-  <div class="Player transition-opacity duration-1000 max-w-full mx-6 md:mx-12 md:opacity-25 lg:mx-auto lg:max-w-5xl lg:opacity-100">
-    <video class="w-full" src="/assets/cest_bien_nils_.mp4" controls=true muted></video>
+  <div class="Player max-w-full mx-6 md:mx-12 lg:mx-auto lg:max-w-5xl">
+    <video class="w-full" src="/assets/video.mp4" controls=true muted autoplay></video>
   </div>
 </template>
 

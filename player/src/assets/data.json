@@ -1,0 +1,11 @@
+{
+  "layers": [{
+    "start": 5,
+    "duration": 3,
+    "content": "Mon titre 1"
+  }, {
+    "start": 14,
+    "duration": 3,
+    "content": "Mon titre 2"
+  }]
+}
