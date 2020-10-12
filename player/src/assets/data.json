@@ -7,5 +7,10 @@
     "start": 14,
     "duration": 3,
     "content": "Mon titre 2"
+  }, {
+    "start": 53,
+    "duration": 5,
+    "type": "img",
+    "content": "https://media.giphy.com/media/CcLaILAAOhvgc/giphy.gif"
   }]
 }

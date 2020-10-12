@@ -6,7 +6,16 @@
       <video @timeupdate="onUpdate" class="w-full" src="/assets/video.mp4" controls=true muted></video>
 
       <div class="Player__layer absolute top-0 left-0 w-full h-full text-left pointer-events-none p-12 text-white">
-        <h1 class="text-4xl font-bold" v-if="currentLayer">{{ currentLayer.content }}</h1>
+        <div class="text-4xl font-bold" v-if="currentLayer">
+          <div v-if="!currentLayer.type">
+            <h1>{{ currentLayer.content }}</h1>
+          </div>
+          
+          <div v-if="currentLayer.type === 'img'">
+            <img :src="currentLayer.content" alt="" class="absolute max-w-xs">
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
