@@ -19,6 +19,15 @@ export default {
 @media (min-width: 768px) {
   .Player {
     margin: 0px 40px;
+    opacity: 0.6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Player {
+    margin: 0px auto;
+    max-width: 900px;
+    opacity: 1;
   }
 }
 </style>
