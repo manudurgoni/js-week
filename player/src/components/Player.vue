@@ -6,7 +6,7 @@
       <video @timeupdate="onUpdate" class="w-full" src="/assets/video.mp4" controls=true muted></video>
 
       <div class="Player__layer absolute top-0 left-0 w-full h-full text-left pointer-events-none p-12 text-white">
-        <h1 class="text-4xl font-bold" v-if="currentLayer">{{ currentLayer }}</h1>
+        <h1 class="text-4xl font-bold" v-if="currentLayer">{{ currentLayer.content }}</h1>
       </div>
     </div>
   </div>
