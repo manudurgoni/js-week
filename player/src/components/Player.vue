@@ -1,6 +1,6 @@
 <template>
   <div class="Player">
-    <video src="/assets/video.mp4" controls=true muted></video>
+    <video src="/assets/cest_bien_nils_.mp4" controls=true muted></video>
   </div>
 </template>
 
@@ -14,6 +14,10 @@ export default {
 .Player {
   max-width: 100%;
   margin: 0px 24px;
+}
+
+.Player video {
+  width: 100%;
 }
 
 @media (min-width: 768px) {
