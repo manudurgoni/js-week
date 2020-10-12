@@ -1,11 +1,19 @@
 <template>
-  <div class="Player max-w-full mx-6 md:mx-12 lg:mx-auto lg:max-w-5xl">
+  <div class="Player max-w-full mx-6 md:mx-12 lg:mx-auto lg:max-w-5xl relative">
     <video @timeupdate="onUpdate" class="w-full" src="/assets/video.mp4" controls=true muted autoplay></video>
+
+    <div class="Player__layer absolute top-0 left-0 p-12 text-white">
+      <h1 class=" text-4xl font-bold">Mon texte</h1>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  mounted() {
+    // const video = this.$el.querySelector('video')
+    // video.addEventListener('timeupdate', this.onUpdate)
+  },
   methods: {
     onUpdate(e) {
       const video = e.target
