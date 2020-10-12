@@ -1,12 +1,18 @@
 <template>
   <div class="Player max-w-full mx-6 md:mx-12 lg:mx-auto lg:max-w-5xl">
-    <video class="w-full" src="/assets/video.mp4" controls=true muted autoplay></video>
+    <video @timeupdate="onUpdate" class="w-full" src="/assets/video.mp4" controls=true muted autoplay></video>
   </div>
 </template>
 
 <script>
 export default {
-  
+  methods: {
+    onUpdate(e) {
+      const video = e.target
+      const currentTime = video.currentTime
+      console.log(currentTime)
+    }
+  }
 }
 </script>
 
