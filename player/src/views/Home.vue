@@ -10,3 +10,7 @@ export default {
   name: 'Home',
 }
 </script>
+
+<style lang="postcss" scoped>
+
+</style>
