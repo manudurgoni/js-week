@@ -1,7 +1,7 @@
 <template>
   <div class="PlayerScroll" >
     <div class="PlayerScroll__video fixed top-0 left-0 h-screen w-screen">
-      <video ref="video" class="absolute object-cover w-full h-full" src="/assets/rocket.mp4"></video>
+      <video ref="video" class="absolute object-cover w-full h-full" src="/assets/rocket_1.mp4"></video>
     </div>
     <div ref="fake-height" class="PlayerScroll__fake-height absolute top-0 left-0"></div>
 
@@ -61,6 +61,5 @@ export default {
 .PlayerScroll__fake-height {
   height: 500vh;
   width: 120px;
-  background: linear-gradient(to bottom, red, #000);
 }
 </style>
