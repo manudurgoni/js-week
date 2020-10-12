@@ -1,13 +1,16 @@
 <template>
   <div class="home text-center">
-    <img class="mx-auto" alt="Vue logo" src="../assets/logo.png">
+    <player></player>
   </div>
 </template>
 
 <script>
-
+import Player from '@/components/Player'
 export default {
   name: 'Home',
+  components: {
+    Player
+  }
 }
 </script>
 
