@@ -1,15 +1,15 @@
 <template>
   <div class="home text-center">
-    <player></player>
+    <mon-player></mon-player>
   </div>
 </template>
 
 <script>
-import Player from '@/components/Player'
+import MonPlayer from '@/components/Player'
 export default {
   name: 'Home',
   components: {
-    Player
+    MonPlayer
   }
 }
 </script>
