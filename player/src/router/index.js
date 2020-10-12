@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Scroll from '../views/Scroll.vue'
 
 Vue.use(VueRouter)
 
@@ -13,7 +14,7 @@ const routes = [
   {
     path: '/scroll',
     name: 'Scroll',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Scroll.vue')
+    component: Scroll
   },
   {
     path: '/about',
