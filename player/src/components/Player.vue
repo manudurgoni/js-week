@@ -1,6 +1,6 @@
 <template>
-  <div class="Player">
-    <video src="/assets/cest_bien_nils_.mp4" controls=true muted></video>
+  <div class="Player max-w-full mx-6 md:mx-12 md:opacity-50 lg:mx-auto lg:max-w-5xl lg:opacity-100">
+    <video class="w-full" src="/assets/cest_bien_nils_.mp4" controls=true muted></video>
   </div>
 </template>
 
@@ -11,6 +11,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+/**
 .Player {
   max-width: 100%;
   margin: 0px 24px;
@@ -34,4 +35,5 @@ export default {
     opacity: 1;
   }
 }
+ */
 </style>
