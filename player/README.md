@@ -1,24 +1,18 @@
 # player
 
-## Project setup
+## Installation du projet
 ```
 yarn install
+ou
+npm run install
 ```
 
-### Compiles and hot-reloads for development
+### Lancer le serveur de developpement
 ```
 yarn serve
+ou
+npm run serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Erreur vue-cli-service not found
+Dans package.json, remplacer `"serve": "vue-cli-service serve"` par `"serve": "node_modules/.bin/vue-cli-service serve",`
