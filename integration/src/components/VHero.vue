@@ -17,8 +17,26 @@
 </template>
 
 <style lang="postcss" scoped>
+.Hero {
+  position: relative;
+}
+
+.Hero::before {
+  content: '';
+  display: block;
+  height: 80%;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(242, 249, 255, 0.12) 0%, #F2F9FF 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
 .title {
   @apply text-blue-dark font-bold leading-none;
   font-size: 56px;
 }
+
 </style>
