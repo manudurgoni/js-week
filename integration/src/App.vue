@@ -1,12 +1,18 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <v-header></v-header>
     <router-view/>
   </div>
 </template>
+
+<script>
+import VHeader from '@/components/VHeader'
+export default {
+  components: {
+    VHeader
+  }
+}
+</script>
 
 <style>
 </style>
