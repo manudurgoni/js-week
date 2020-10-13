@@ -15,14 +15,3 @@
     </div>
   </header>
 </template>
-
-<style lang="postcss" scoped>
-.link {
-  @apply mr-10 p-3 text-blue-dark;
-}
-
-.link:focus,
-.link:hover {
-  @apply text-blue-button;
-}
-</style>
