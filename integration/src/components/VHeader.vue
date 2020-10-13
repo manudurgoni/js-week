@@ -1,6 +1,6 @@
 <template>
-  <header class="MainHeader bg-red-500">
-    <div class="MainHeader__container max-w-4xl mx-auto px-4 py-6 bg-red-100 flex">
+  <header class="MainHeader">
+    <div class="MainHeader__container max-w-4xl mx-auto px-4 py-6 flex">
       <img src="@/assets/logo.svg" alt="Digits logo">
 
       <nav class=" ml-16">
