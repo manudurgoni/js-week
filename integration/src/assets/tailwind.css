@@ -3,7 +3,3 @@
 @tailwind components;
 
 @tailwind utilities;
-
-.open-sans {
-  font-family: 'Open Sans', sans-serif;
-}
