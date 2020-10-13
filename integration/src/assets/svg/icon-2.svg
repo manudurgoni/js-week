@@ -1,0 +1,20 @@
+<svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="58" height="58" rx="4" fill="#FACFCA"/>
+  <g filter="url(#filter0_d)" fill="#fff" clip-path="url(#clip0)">
+    <path d="M39 30h-5a2.5 2.5 0 00-2.5 2.5V40a2.5 2.5 0 002.5 2.5h5a2.5 2.5 0 002.5-2.5v-7.5A2.5 2.5 0 0039 30zM24 17.5h-5a2.5 2.5 0 00-2.5 2.5v7.5A2.5 2.5 0 0019 30h5a2.5 2.5 0 002.5-2.5V20a2.5 2.5 0 00-2.5-2.5zM39 17.5h-5a2.5 2.5 0 00-2.5 2.5v2.5A2.5 2.5 0 0034 25h5a2.5 2.5 0 002.5-2.5V20a2.5 2.5 0 00-2.5-2.5zM24 35h-5a2.5 2.5 0 00-2.5 2.5V40a2.5 2.5 0 002.5 2.5h5a2.5 2.5 0 002.5-2.5v-2.5A2.5 2.5 0 0024 35z"/>
+  </g>
+  <defs>
+    <clipPath id="clip0">
+      <path fill="#fff" transform="translate(14 15)" d="M0 0h30v30H0z"/>
+    </clipPath>
+    <filter id="filter0_d" x="14.5" y="17.5" width="33" height="33" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dx="2" dy="4"/>
+      <feGaussianBlur stdDeviation="2"/>
+      <feColorMatrix values="0 0 0 0 0.270588 0 0 0 0 0.345098 0 0 0 0 0.501961 0 0 0 0.2 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+  </defs>
+</svg>
