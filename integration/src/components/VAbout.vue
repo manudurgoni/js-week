@@ -69,7 +69,7 @@
 }
 
 .About__features .feature {
-  @apply flex items-start border-b border-blue-text border-opacity-25 mb-12;
+  @apply flex items-start border-b border-blue-text border-opacity-25 mb-12 pb-12;
 }
 
 .About__features .feature:last-child {
@@ -77,7 +77,7 @@
 }
 
 .feature .feature__content {
-  @apply ml-12 pb-12 border-black;
+  @apply ml-12 border-black;
 }
 
 .feature .feature__content h3 {
