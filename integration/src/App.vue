@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="open-sans">
     <v-header></v-header>
     <router-view/>
   </div>
