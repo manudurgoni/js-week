@@ -1,12 +1,15 @@
 <template>
   <div class="home">
-    <h1>Home page</h1>
+    <v-hero></v-hero>
   </div>
 </template>
 
 <script>
-
+import VHero from '@/components/VHero'
 export default {
   name: 'Home',
+  components: {
+    VHero
+  }
 }
 </script>

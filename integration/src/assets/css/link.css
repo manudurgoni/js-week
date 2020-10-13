@@ -1,5 +1,5 @@
 .link {
-  @apply mr-10 p-3 text-blue-dark;
+  @apply mr-10 p-3 text-blue-dark inline-block;
 }
 
 .link:focus,
@@ -8,7 +8,7 @@
 }
 
 .link-rounded {
-  @apply text-white bg-blue-button rounded-full px-4;
+  @apply text-white bg-blue-button rounded-full px-4 inline-block;
   padding-top: 8px;
   padding-bottom: 11px;
 }
