@@ -1,6 +1,6 @@
 <template>
   <div class="Hero text-center">
-    <div class="Hero__container max-w-4xl mx-auto pt-20">
+    <div class="Hero__container max-w-6xl mx-auto pt-20">
       <h1 class="title text-blue-dark">Good design meets<br>great user experience</h1>
       <p class="my-6 text-blue-text text-lg">For everyone, from beginners to experts</p>
 
@@ -10,7 +10,7 @@
       </div>
 
       <div class="illustration mt-24">
-        <img src="@/assets/illustration.svg" alt="Jeune femme qui tient un téléphone les cheveux au vent.">
+        <img  class="mx-auto" src="@/assets/illustration.svg" alt="Jeune femme qui tient un téléphone les cheveux au vent.">
       </div>
     </div>
   </div>
@@ -32,7 +32,6 @@
   left: 0;
   z-index: -1;
 }
-
 
 .title {
   @apply text-blue-dark font-bold leading-none;
