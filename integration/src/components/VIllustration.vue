@@ -3,7 +3,7 @@
   <rect data-speed="2.5" x="797" y="228" width="64" height="64" rx="4" fill="#B5F2E3"/>
   <circle data-speed="0.5" cx="101.5" cy="386.5" r="89.5" fill="#FACFCA"/>
   <path data-speed="3" d="M62.48 2.79L6.6 26.68a4 4 0 00-.73 6.95l47.78 33.6a4 4 0 006.26-2.7l8.1-57.5a4 4 0 00-5.53-4.24z" fill="#F8AEC3"/>
-  <circle data-speed="10" cx="904" cy="99" r="16" fill="#FED385"/>
+  <circle data-speed="1.1" cx="904" cy="99" r="16" fill="#FED385"/>
   <g filter="url(#filter0_dd)">
     <rect x="115" y="36" width="719" height="533" rx="18" fill="#fff"/>
   </g>
@@ -20,8 +20,8 @@
   <path d="M685.14 267.04l-27.75 4.19 7.18 47.56 27.74-4.19-7.17-47.56z" fill="#333"/>
   <path d="M705.35 310.55c3.31-5.74-.46-14.12-8.43-18.72s-17.1-3.67-20.42 2.06c-3.31 5.74.46 14.12 8.43 18.72 7.96 4.6 17.1 3.67 20.42-2.06z" fill="#DE8E68"/>
   <path d="M720.46 225.82c0 5.78-23.1 6.22-23.1 0v-35.09h23.1v35.1z" fill="#D37C59"/>
-  <path d="M702.92 211.61c12.63 0 22.87-18.2 22.87-40.64 0-22.45-10.24-40.64-22.87-40.64-12.64 0-22.88 18.2-22.88 40.64s10.24 40.64 22.88 40.64z" fill="#DE8E68"/>
-  <path d="M724.24 182.74a6 6 0 100-12 6 6 0 000 12z" fill="#DE8E68"/>
+  <path data-speed="0.3" d="M702.92 211.61c12.63 0 22.87-18.2 22.87-40.64 0-22.45-10.24-40.64-22.87-40.64-12.64 0-22.88 18.2-22.88 40.64s10.24 40.64 22.88 40.64z" fill="#DE8E68"/>
+  <path data-speed="0.3" d="M724.24 182.74a6 6 0 100-12 6 6 0 000 12z" fill="#DE8E68"/>
   <path data-speed="0.3" d="M802.19 124.55c-17.33 0-31.54 12.44-50.2 12.44-13.32 0-26.2-15.99-44.86-15.99-23.98 0-31.53 12.88-31.53 21.76 0 7.11 4.44 15.1 5.77 15.1 0-2.22 2.67-10.21 3.56-11.1.89 3.11 19.54 24.88 35.97 24.88v.12a6 6 0 110 9.97v13h4.45c5.77 0 8.43-2.22 17.32-2.22 15.54 0 37.3 19.1 63.96 19.1 28.87 0 40.86-21.76 40.86-46.2 0-32.42-30.65-40.86-45.3-40.86z" fill="#000"/>
   <path d="M767.1 415.48v154.57h-55.52l-44.47-148c15.6 2.76 74.67 4.98 99.99-6.57z" fill="#74D5DE"/>
   <circle data-speed="0.4" cx="101.5" cy="188.5" r="31.5" fill="#74D5DE"/>
@@ -71,6 +71,20 @@ export default {
     this.addListeners()
     // Récuperer les elements qui ont un data attribute speed
     this.elements = this.$el.querySelectorAll('[data-speed]')
+
+    for (const element of this.elements) {
+      element.easeValues = {
+        x: 0,
+        y: 0
+      }
+    }
+
+    this.mouse = {
+      x: 0,
+      y: 0
+    }
+
+    this.render()
   },
 
   methods: {
@@ -115,22 +129,43 @@ export default {
 
       const normX = -1 + ((e.x / window.innerWidth) * 2)
       const normY = -1 + ((e.y/ window.innerHeight) * 2)
+
+      this.mouse.x = normX
+      this.mouse.y = normY
+    },
+
+    render() {
+      this.translate()
+
+      this.raf = requestAnimationFrame(this.render)
+    },
+
+    translate() {
       const distanceMaxX = 30
       const distanceMaxY = 10
 
-      const x = normX * distanceMaxX
-      const y = normY * distanceMaxY
+      const x = this.mouse.x * distanceMaxX
+      const y = this.mouse.y * distanceMaxY
 
       // On loop les éléments
       for (const el of this.elements) {
         // On ajoute un nouveau multiplicateur pour faire varier la distance.
         const factor = el.dataset.speed || 1
+
         const xFinal = x * factor
         const yFinal = y * factor
 
+        el.easeValues.x += (xFinal - el.easeValues.x) * 0.1
+        el.easeValues.y += (yFinal - el.easeValues.y) * 0.1
+
         // On applique à l'objet un déplacement css xFinal en x et yFinal en y.
-        el.style.transform = `translate3d(${xFinal}px, ${yFinal}px, 0)`
+        el.style.transform = `translate3d(${el.easeValues.x}px, ${el.easeValues.y}px, 0)`
       }
+
+
+      // this.x0 += 0.1
+      // const x = Math.cos(this.x0) * 30
+      // this.element0.style.transform = `translate3d(${x}px, 0px, 0)`
     },
   
     addListeners() {
@@ -143,6 +178,9 @@ export default {
 
   beforeDestroy() {
     this.removeListeners()
+    if (this.raf) {
+      cancelAnimationFrame(this.raf)
+    }
   }
 }
 </script>
