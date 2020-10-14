@@ -73,16 +73,19 @@ export default {
     this.elements = this.$el.querySelectorAll('[data-speed]')
   },
 
-  onMove(e) {
-    console.log(e)
+  methods: {
+    onMove(e) {
+      console.log(e)
+    },
+  
+    addListeners() {
+      window.addEventListener('mousemove', this.onMove)
+    },
+    removeListeners() {
+      window.removeEventListener('mousemove', this.onMove)
+    },
   },
 
-  addListeners() {
-    window.addEventListener('mousemove', this.onMove)
-  },
-  removeListeners() {
-    window.removeEventListener('mousemove', this.onMove)
-  },
   beforeDestroy() {
     this.removeListeners()
   }
