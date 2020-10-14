@@ -10,11 +10,20 @@
       </div>
 
       <div class="illustration mt-24">
-        <img  class="mx-auto" src="@/assets/illustration.svg" alt="Jeune femme qui tient un téléphone les cheveux au vent.">
+        <v-illustration class="w-full"></v-illustration>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import VIllustration from '@/components/VIllustration'
+export default {
+  components: {
+    VIllustration
+  }
+}
+</script>
 
 <style lang="postcss" scoped>
 .Hero {
