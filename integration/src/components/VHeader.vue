@@ -13,7 +13,7 @@
         <a href="#" class="link-rounded">Contact Us</a>
       </div>
 
-      <button class="ml-auto menu-btn" @click="toggleMenu">
+      <button class="ml-auto menu-btn" :class="{ 'menu-btn--open': isMenuOpen }" @click="toggleMenu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
