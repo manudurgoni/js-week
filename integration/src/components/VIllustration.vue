@@ -1,9 +1,9 @@
 <template>
 <svg width="977" height="608" viewBox="0 0 977 608" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <rect x="797" y="228" width="64" height="64" rx="4" fill="#B5F2E3"/>
-  <circle cx="101.5" cy="386.5" r="89.5" fill="#FACFCA"/>
-  <path d="M62.48 2.79L6.6 26.68a4 4 0 00-.73 6.95l47.78 33.6a4 4 0 006.26-2.7l8.1-57.5a4 4 0 00-5.53-4.24z" fill="#F8AEC3"/>
-  <circle cx="904" cy="99" r="16" fill="#FED385"/>
+  <rect data-speed="2.5" x="797" y="228" width="64" height="64" rx="4" fill="#B5F2E3"/>
+  <circle data-speed="2" cx="101.5" cy="386.5" r="89.5" fill="#FACFCA"/>
+  <path data-speed="3" d="M62.48 2.79L6.6 26.68a4 4 0 00-.73 6.95l47.78 33.6a4 4 0 006.26-2.7l8.1-57.5a4 4 0 00-5.53-4.24z" fill="#F8AEC3"/>
+  <circle data-speed="2" cx="904" cy="99" r="16" fill="#FED385"/>
   <g filter="url(#filter0_dd)">
     <rect x="115" y="36" width="719" height="533" rx="18" fill="#fff"/>
   </g>
@@ -64,3 +64,27 @@
   </defs>
 </svg>
 </template>
+
+<script>
+export default {
+  mounted() {
+    this.addListeners()
+    // Récuperer les elements qui ont un data attribute speed
+    this.elements = this.$el.querySelectorAll('[data-speed]')
+  },
+
+  onMove(e) {
+    console.log(e)
+  },
+
+  addListeners() {
+    window.addEventListener('mousemove', this.onMove)
+  },
+  removeListeners() {
+    window.removeEventListener('mousemove', this.onMove)
+  },
+  beforeDestroy() {
+    this.removeListeners()
+  }
+}
+</script>
