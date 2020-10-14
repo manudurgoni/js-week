@@ -1,9 +1,9 @@
 <template>
 <svg width="977" height="608" viewBox="0 0 977 608" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <rect data-speed="2.5" x="797" y="228" width="64" height="64" rx="4" fill="#B5F2E3"/>
-  <circle data-speed="2" cx="101.5" cy="386.5" r="89.5" fill="#FACFCA"/>
+  <circle data-speed="0.5" cx="101.5" cy="386.5" r="89.5" fill="#FACFCA"/>
   <path data-speed="3" d="M62.48 2.79L6.6 26.68a4 4 0 00-.73 6.95l47.78 33.6a4 4 0 006.26-2.7l8.1-57.5a4 4 0 00-5.53-4.24z" fill="#F8AEC3"/>
-  <circle data-speed="2" cx="904" cy="99" r="16" fill="#FED385"/>
+  <circle data-speed="10" cx="904" cy="99" r="16" fill="#FED385"/>
   <g filter="url(#filter0_dd)">
     <rect x="115" y="36" width="719" height="533" rx="18" fill="#fff"/>
   </g>
@@ -77,17 +77,19 @@ export default {
     onMove(e) {
       const percentX = -1 + ((e.x / window.innerWidth) * 2)
       const percentY = -1 + ((e.y/ window.innerHeight) * 2)
-      const distanceMax = 30
+      const distanceMaxX = 30
+      const distanceMaxY = 10
 
-      const x = percentX * distanceMax
-      const y = percentY * distanceMax
+      const x = percentX * distanceMaxX
+      const y = percentY * distanceMaxY
       // let x = -1 + ((e.x / window.innerWidth) * 2)
       // let y = e.y / window.innerHeight
       // console.log(x)
 
 
       for (const el of this.elements) {
-        el.style.transform = `translate3d(${x}px, ${y}px, 0)`
+        const factor = el.dataset.speed
+        el.style.transform = `translate3d(${x * factor}px, ${y * factor}px, 0)`
       }
     },
   
