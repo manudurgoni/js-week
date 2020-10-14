@@ -13,7 +13,7 @@
         <a href="#" class="link-rounded">Contact Us</a>
       </div>
 
-      <button class="ml-auto menu-btn md:hidden">
+      <button class="ml-auto menu-btn" @click="toggleMenu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -21,8 +21,28 @@
         <span class="sr-only">Menu</span>
       </button>
     </div>
+    <v-menu-mobile v-show="isMenuOpen"></v-menu-mobile>
   </header>
 </template>
+
+<script>
+import VMenuMobile from '@/components/VMenuMobile'
+export default {
+  components: {
+    VMenuMobile
+  },
+  data() {
+    return {
+      isMenuOpen: false
+    }
+  },
+  methods: {
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen
+    }
+  }
+}
+</script>
 
 <style lang="postcss" scoped>
 .menu-btn {
@@ -31,6 +51,12 @@
   outline: none;
   padding: 13px 10px;
   @apply border-blue-button border flex flex-col justify-between rounded-full;
+}
+
+@screen md {
+  .menu-btn {
+    display: none;
+  }
 }
 
 .menu-btn .bar {
