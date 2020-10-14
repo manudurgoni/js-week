@@ -1,16 +1,16 @@
 <template>
   <div class="About">
-    <div class="About__container max-w-6xl mx-auto pt-20 pb-48">
-      <h2 class="title">Whatever work you do,<br>we're able to help</h2>
+    <div class="About__container container pt-20 pb-48">
+      <h2 class="title">Whatever work you do,<br class="hidden lg:block">we're able to help</h2>
 
-      <div class="flex justify-between mt-16">
-        <div class="About__imgs">
+      <div class="md:flex justify-between mt-16">
+        <div class="About__imgs flex-1 md:mr-8">
           <img src="@/assets/img/girl-1.png" alt="">
           <img src="@/assets/img/guy-1.png" alt="">
           <img src="@/assets/img/guy-2.png" alt="">
         </div>
 
-        <div class="About__features mt-20">
+        <div class="About__features mt-20 flex-1">
           <div class="feature">
             <img src="@/assets/svg/icon-1.svg" alt="" class="feature__icon">
             <div class="feature__content">
@@ -43,29 +43,62 @@
 
 <style lang="postcss" scoped>
 .title {
-  @apply text-blue-dark font-bold leading-none text-center;
-  font-size: 48px;
+  @apply text-blue-dark font-bold leading-9 text-center;
+  font-size: 30px;
+}
+
+
+@screen md {
+  .title {
+    font-size: 48px;
+    line-height: 56px;
+  }
 }
 
 /*
   Imgs
 */
 .About__imgs img:nth-child(1) {
-  margin-left: 180px;
+  margin-left: 33%;
+  width: 66%;
 }
 .About__imgs img:nth-child(2) {
-  margin-top: -94px;
+  margin-top: -20%;
+  width: 52%;
 }
 .About__imgs img:nth-child(3) {
-  margin-top: -142px;
-  margin-left: 200px;
+  margin-top: -20%;
+  margin-left: 40%;
+  width: 40%;
 }
+@screen lg {
+  .About__imgs img:nth-child(1) {
+    margin-left: 180px;
+    width: initial;
+  }
+  .About__imgs img:nth-child(2) {
+    margin-top: -94px;
+    width: initial;
+  }
+  .About__imgs img:nth-child(3) {
+    margin-top: -142px;
+    margin-left: 200px;
+    width: initial;
+  }
+}
+
 
 /** 
   Features
  */
 .About__features {
-  max-width: 405px;
+  max-width: 100%;
+}
+
+@screen lg {
+  .About__features {
+    max-width: 405px;
+  }
 }
 
 .About__features .feature {
@@ -77,7 +110,13 @@
 }
 
 .feature .feature__content {
-  @apply ml-12 border-black;
+  @apply ml-8 border-black;
+}
+
+@screen lg {
+  .feature .feature__content {
+    @apply ml-12;
+  }
 }
 
 .feature .feature__content h3 {

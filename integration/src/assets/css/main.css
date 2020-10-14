@@ -1,5 +1,23 @@
 @import './link.css';
 
+/**
+Layout
+*/
+.container {
+  @apply max-w-6xl mx-auto px-4;
+}
+
+@screen md {
+  .container {
+    @apply px-6;
+  }
+}
+
+
+
+/**
+Fonts
+*/
 .open-sans {
   font-family: 'Open Sans', sans-serif;
 }
