@@ -22,13 +22,13 @@
   <path d="M720.46 225.82c0 5.78-23.1 6.22-23.1 0v-35.09h23.1v35.1z" fill="#D37C59"/>
   <path d="M702.92 211.61c12.63 0 22.87-18.2 22.87-40.64 0-22.45-10.24-40.64-22.87-40.64-12.64 0-22.88 18.2-22.88 40.64s10.24 40.64 22.88 40.64z" fill="#DE8E68"/>
   <path d="M724.24 182.74a6 6 0 100-12 6 6 0 000 12z" fill="#DE8E68"/>
-  <path d="M802.19 124.55c-17.33 0-31.54 12.44-50.2 12.44-13.32 0-26.2-15.99-44.86-15.99-23.98 0-31.53 12.88-31.53 21.76 0 7.11 4.44 15.1 5.77 15.1 0-2.22 2.67-10.21 3.56-11.1.89 3.11 19.54 24.88 35.97 24.88v.12a6 6 0 110 9.97v13h4.45c5.77 0 8.43-2.22 17.32-2.22 15.54 0 37.3 19.1 63.96 19.1 28.87 0 40.86-21.76 40.86-46.2 0-32.42-30.65-40.86-45.3-40.86z" fill="#000"/>
+  <path data-speed="0.3" d="M802.19 124.55c-17.33 0-31.54 12.44-50.2 12.44-13.32 0-26.2-15.99-44.86-15.99-23.98 0-31.53 12.88-31.53 21.76 0 7.11 4.44 15.1 5.77 15.1 0-2.22 2.67-10.21 3.56-11.1.89 3.11 19.54 24.88 35.97 24.88v.12a6 6 0 110 9.97v13h4.45c5.77 0 8.43-2.22 17.32-2.22 15.54 0 37.3 19.1 63.96 19.1 28.87 0 40.86-21.76 40.86-46.2 0-32.42-30.65-40.86-45.3-40.86z" fill="#000"/>
   <path d="M767.1 415.48v154.57h-55.52l-44.47-148c15.6 2.76 74.67 4.98 99.99-6.57z" fill="#74D5DE"/>
-  <circle cx="101.5" cy="188.5" r="31.5" fill="#74D5DE"/>
+  <circle data-speed="0.4" cx="101.5" cy="188.5" r="31.5" fill="#74D5DE"/>
   <mask id="a" maskUnits="userSpaceOnUse" x="70" y="157" width="63" height="63">
     <circle cx="101.5" cy="188.5" r="31.5" fill="#74D5DE"/>
   </mask>
-  <g mask="url(#a)">
+  <g mask="url(#a)" data-speed="0.4">
     <path fill="url(#pattern0)" d="M74 162h56v60H74z"/>
   </g>
   <path fill="#DFE0EB" d="M257 115h289v12H257zM257 142h201v6H257z"/>
@@ -75,21 +75,61 @@ export default {
 
   methods: {
     onMove(e) {
-      const percentX = -1 + ((e.x / window.innerWidth) * 2)
-      const percentY = -1 + ((e.y/ window.innerHeight) * 2)
+      /**
+       * L'idée ici est de bouger nos elements avec un attribut data-speed lorsque la souris se déplace. Plus le data-speed sera élevé plus l'element se déplacera loin. La transformation s'effectura en appliquant un css transform  : translate3d(x, y, 0)
+       * 
+       */
+
+
+      /**
+       * Premiere étape : récuperer la valeur de la position de la souris.
+       * e.x => position horizontale qui va de 0 à la largeur de la fenetre (window.innerWidth)
+       * e.y => position verticale qui va de 0 à la hauteur de la fenetre (window.innerHeight)
+       * 
+       * Cette valeur n'est actuellement pas utilisable car en fonction la largeur ou de la hauteur de l'écran, elle va changer. On va donc devoir "normaliser" la valeur. On veut qu'elle aille de 0 à 1.
+       * 
+       * Pour normaliser il suffit de prendre notre position et de la diviser par sa plus grande valeur possible.
+       * 
+       * Exemple pour une position x = 400 et un écran de largeur 1024
+       * la valeur normée sera alors de 400 / 1024 = 0.39
+       * 
+       * On va utiliser cette valeur normée nous servira de multiplicateur sur une distance que l'on voudra effectuer.
+       * 
+       * Exemple, on veut que notre element bouge sur un rayon de 30px quand la souris se déplace d'un bout à l'autre de l'écran.
+       * 
+       * La position x de la souris = 500
+       * La largeur de l'écran = 1024
+       * La valeur normée = 500 / 1024 = 0.48
+       * La distance maximale à parcourir (le rayon) = 30
+       * 
+       * On peut connaitre la distance à effectuer en faisant une multiplication
+       * valeur normée * distance maximale à parcourir
+       * dans notre cas => 0.48 * 30 = 14.4
+       * 
+       * On peut conclure que lorsque la position x de la souris est à 500px, que l'écran fait 1024px de large, l'element devra bouger de 14.4px
+       * 
+       * 
+       * Le problème ici, c'est que la valeur va de 0 à 1, on ne peut donc pas déplacer les objets dans le négatif. Hors je veux que l'objet bouge à gauche quand la souris est à gauche de l'écran et à droite quand la souris est à droite de l'écran. Quand la souris est au milieu la position des éléments est inchangée. Il faut donc que notre valeur normée aille de -1 à 1. C'est le calcul ci dessous.
+       * 
+       */
+
+      const normX = -1 + ((e.x / window.innerWidth) * 2)
+      const normY = -1 + ((e.y/ window.innerHeight) * 2)
       const distanceMaxX = 30
       const distanceMaxY = 10
 
-      const x = percentX * distanceMaxX
-      const y = percentY * distanceMaxY
-      // let x = -1 + ((e.x / window.innerWidth) * 2)
-      // let y = e.y / window.innerHeight
-      // console.log(x)
+      const x = normX * distanceMaxX
+      const y = normY * distanceMaxY
 
-
+      // On loop les éléments
       for (const el of this.elements) {
-        const factor = el.dataset.speed
-        el.style.transform = `translate3d(${x * factor}px, ${y * factor}px, 0)`
+        // On ajoute un nouveau multiplicateur pour faire varier la distance.
+        const factor = el.dataset.speed || 1
+        const xFinal = x * factor
+        const yFinal = y * factor
+
+        // On applique à l'objet un déplacement css xFinal en x et yFinal en y.
+        el.style.transform = `translate3d(${xFinal}px, ${yFinal}px, 0)`
       }
     },
   
