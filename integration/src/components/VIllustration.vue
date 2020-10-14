@@ -75,7 +75,20 @@ export default {
 
   methods: {
     onMove(e) {
-      console.log(e)
+      const percentX = -1 + ((e.x / window.innerWidth) * 2)
+      const percentY = -1 + ((e.y/ window.innerHeight) * 2)
+      const distanceMax = 30
+
+      const x = percentX * distanceMax
+      const y = percentY * distanceMax
+      // let x = -1 + ((e.x / window.innerWidth) * 2)
+      // let y = e.y / window.innerHeight
+      // console.log(x)
+
+
+      for (const el of this.elements) {
+        el.style.transform = `translate3d(${x}px, ${y}px, 0)`
+      }
     },
   
     addListeners() {
