@@ -14,9 +14,9 @@ export default {
   },
   mounted() {
     this.scroll = new LocomotiveScroll({
-      el: this.$el.querySelector('[data-scroll-container]'),
+      el: this.$el,
       smooth: true
-    });
+    })
   }
 }
 </script>
