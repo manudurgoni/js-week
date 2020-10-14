@@ -13,7 +13,42 @@
         <a href="#" class="link-rounded">Contact Us</a>
       </div>
 
-      
+      <button class="ml-auto menu-btn md:hidden">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+
+        <span class="sr-only">Menu</span>
+      </button>
     </div>
   </header>
 </template>
+
+<style lang="postcss" scoped>
+.menu-btn {
+  width: 40px;
+  height: 40px;
+  outline: none;
+  padding: 13px 10px;
+  @apply border-blue-button border flex flex-col justify-between rounded-full;
+}
+
+.menu-btn .bar {
+  width: 100%;
+  height: 2px;
+  @apply bg-blue-button block;
+}
+
+.menu-btn:focus,
+.menu-btn:hover {
+  @apply  bg-blue-button;
+}
+
+.menu-btn:focus .bar,
+.menu-btn:hover .bar {
+  @apply bg-white;
+}
+
+
+
+</style>
