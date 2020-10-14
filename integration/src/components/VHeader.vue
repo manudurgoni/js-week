@@ -13,7 +13,7 @@
         <a href="#" class="link-rounded">Contact Us</a>
       </div>
 
-      <button class="ml-auto menu-btn" :class="{ 'menu-btn--open': isMenuOpen }" @click="toggleMenu">
+      <button ref="button" class="ml-auto menu-btn" :class="{ 'menu-btn--open': isMenuOpen }" @click="toggleMenu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -38,6 +38,7 @@ export default {
   },
   methods: {
     toggleMenu() {
+      this.$refs.button.blur()
       this.isMenuOpen = !this.isMenuOpen
     }
   }
@@ -50,7 +51,7 @@ export default {
   height: 40px;
   outline: none;
   padding: 13px 10px;
-  @apply border-blue-button border flex flex-col justify-between rounded-full;
+  @apply border-blue-button border flex flex-col justify-between rounded-full transition duration-500;
 }
 
 @screen md {
@@ -62,7 +63,7 @@ export default {
 .menu-btn .bar {
   width: 100%;
   height: 2px;
-  @apply bg-blue-button block;
+  @apply bg-blue-button block transition duration-500 origin-center;
 }
 
 .menu-btn:focus,
@@ -70,11 +71,29 @@ export default {
   @apply  bg-blue-button;
 }
 
+@media (hover: none) {
+  .menu-btn:hover { color: inherit; }
+}
+
 .menu-btn:focus .bar,
 .menu-btn:hover .bar {
   @apply bg-white;
 }
 
+/**
+  Menu open
+ */
 
+.menu-btn--open .bar:nth-child(1){
+  transform: translateY(5px) rotate(45deg);
+}
+
+.menu-btn--open .bar:nth-child(2){
+  transform: scaleX(0);
+}
+
+.menu-btn--open .bar:nth-child(3){
+  transform: translateY(-5px) rotate(-45deg);
+}
 
 </style>
