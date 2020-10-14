@@ -1,5 +1,5 @@
 <template>
-  <header class="MainHeader">
+  <header class="MainHeader fixed top-0 w-full z-10 bg-white">
     <div class="MainHeader__container container py-4 flex items-center">
       <img src="@/assets/logo.svg" alt="Digits logo">
 
