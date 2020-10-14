@@ -28,6 +28,11 @@
 <script>
 import VMenuMobile from '@/components/VMenuMobile'
 export default {
+  watch:{
+    $route (){
+      this.isMenuOpen = false
+    }
+  },
   components: {
     VMenuMobile
   },
