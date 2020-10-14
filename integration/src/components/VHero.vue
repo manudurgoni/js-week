@@ -10,7 +10,7 @@
       </div>
 
       <div class="illustration mt-24">
-        <v-illustration class="w-full"></v-illustration>
+        <v-illustration class="w-full h-auto"></v-illustration>
       </div>
     </div>
   </div>
