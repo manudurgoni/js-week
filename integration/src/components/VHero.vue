@@ -1,7 +1,7 @@
 <template>
   <div class="Hero text-center">
     <div class="Hero__container container pt-20">
-      <h1 class="title text-blue-dark">Good design meets<br>great user experience</h1>
+      <h1 class="title text-blue-dark" data-scroll data-scroll-speed="2">Good design meets<br>great user experience</h1>
       <p class="my-6 text-blue-text text-lg">For everyone, from beginners to experts</p>
 
       <div class="buttons">
