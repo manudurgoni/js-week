@@ -26,6 +26,9 @@ export default {
     VIllustration
   },
   mounted() {
+
+    if (window.innerWidth < 768) return
+
     const tl = gsap.timeline({
       delay: 1
     })
