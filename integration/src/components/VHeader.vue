@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     toggleMenu() {
-      this.$refs.button.blur()
+      console.log('menu')
       this.isMenuOpen = !this.isMenuOpen
     }
   }

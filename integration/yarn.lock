@@ -4176,6 +4176,11 @@ globby@^9.2.0:
     pify "^4.0.1"
     slash "^2.0.0"
 
+glsl-layer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/glsl-layer/-/glsl-layer-1.0.0.tgz#4d884f769d50ec50369035c178676e36e8144301"
+  integrity sha512-nDIMo0sKJrDrT+UusyTVRafCNqwcss951FpxvymTuO0/ZXTLf3NIS11MHSEcqj6gs26zZBckn4NXPNe8e27O6A==
+
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.2:
   version "4.2.4"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"

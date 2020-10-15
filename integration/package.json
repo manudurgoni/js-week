@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "faker": "^5.1.0",
+    "glsl-layer": "^1.0.0",
     "locomotive-scroll": "^3.6.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
