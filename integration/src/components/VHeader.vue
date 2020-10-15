@@ -21,7 +21,7 @@
         <span class="sr-only">Menu</span>
       </button>
     </div>
-    <v-menu-mobile v-show="isMenuOpen"></v-menu-mobile>
+    <v-menu-mobile v-if="isMenuOpen"></v-menu-mobile>
   </header>
 </template>
 
