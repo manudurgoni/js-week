@@ -32,10 +32,14 @@ export default {
     gsap.from(chars, {
       delay: 1,
       autoAlpha: 0,
-      y: 30,
-      stagger: 0.06,
-      // ease: 
-      duration: 0.8
+      scaleY: 0,
+      y: (i) => {
+        return (chars.length - Math.cos(i)) * Math.random() * 5
+      },
+      x: 0,
+      stagger: 0.02,
+      ease: "elastic.out(2, 0.8)",
+      duration: 1
     })
   }
 }
