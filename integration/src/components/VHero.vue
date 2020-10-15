@@ -1,7 +1,7 @@
 <template>
   <div class="Hero text-center">
     <div class="Hero__container container pt-20">
-      <h1 class="title text-blue-dark" data-scroll data-scroll-speed="2">Good design meets<br>great user experience</h1>
+      <h1 ref="title" class="title text-blue-dark">Good design meets<br>great user experience</h1>
       <p class="my-6 text-blue-text text-lg">For everyone, from beginners to experts</p>
 
       <div class="buttons">
@@ -17,15 +17,35 @@
 </template>
 
 <script>
+import gsap from 'gsap'
+import Splitting from 'splitting'
+
 import VIllustration from '@/components/VIllustration'
 export default {
   components: {
     VIllustration
+  },
+  mounted() {
+    const title = this.$refs.title
+    const chars = Splitting({ target: title, by: 'chars' })[0].chars
+
+    gsap.from(chars, {
+      delay: 1,
+      autoAlpha: 0,
+      y: 30,
+      stagger: 0.06,
+      // ease: 
+      duration: 0.8
+    })
   }
 }
 </script>
 
 <style lang="postcss" scoped>
+>>> .char {
+  display: inline-block;
+}
+
 .Hero {
   position: relative;
 }

@@ -11,7 +11,9 @@
     "core-js": "^3.6.5",
     "faker": "^5.1.0",
     "glsl-layer": "^1.0.0",
+    "gsap": "^3.5.1",
     "locomotive-scroll": "^3.6.1",
+    "splitting": "^1.0.6",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },
