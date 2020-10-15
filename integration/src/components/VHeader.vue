@@ -66,7 +66,7 @@ export default {
 }
 
 .menu-btn .bar {
-  width: 100%;
+  width: 18px;
   height: 2px;
   @apply bg-blue-button block transition duration-500 origin-center;
 }
